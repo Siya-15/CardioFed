@@ -1,0 +1,53 @@
+{
+  "all 13 features, native NaN": {
+    "cv_auc": 0.896,
+    "loho_auc": {
+      "cleveland": 0.8425,
+      "hungarian": 0.9,
+      "switzerland": 0.7862,
+      "va": 0.7005
+    },
+    "loho_mean": 0.8073,
+    "risk_shift_if_blank": {
+      "chol": 0.0772,
+      "fbs": 0.0502,
+      "trestbps": 0.0297,
+      "oldpeak": 0.0415
+    },
+    "hospital_predictable_from_missingness": 0.8365
+  },
+  "drop ca/thal, native NaN": {
+    "cv_auc": 0.8795,
+    "loho_auc": {
+      "cleveland": 0.8429,
+      "hungarian": 0.8937,
+      "switzerland": 0.8025,
+      "va": 0.7053
+    },
+    "loho_mean": 0.8111,
+    "risk_shift_if_blank": {
+      "chol": 0.1042,
+      "fbs": 0.0525,
+      "trestbps": 0.0292,
+      "oldpeak": 0.0376
+    },
+    "hospital_predictable_from_missingness": 0.7384
+  },
+  "drop ca/thal, stochastic imputation (chosen)": {
+    "cv_auc": 0.8692,
+    "loho_auc": {
+      "cleveland": 0.8428,
+      "hungarian": 0.8984,
+      "switzerland": 0.8043,
+      "va": 0.7387
+    },
+    "loho_mean": 0.8211,
+    "risk_shift_if_blank": {
+      "chol": -0.0008,
+      "fbs": 0.0022,
+      "trestbps": 0.001,
+      "oldpeak": 0.0127
+    },
+    "hospital_predictable_from_missingness": 0.7384
+  }
+}

@@ -1,0 +1,12 @@
+# Runtime + development dependencies (tested with xgboost 3.0, scikit-learn 1.9, pandas 3.0, Python 3.13).
+# For an editable install use:  pip install -e ".[dev]"
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+xgboost>=2.0
+fastapi>=0.110
+uvicorn[standard]>=0.27
+matplotlib>=3.8
+seaborn>=0.13
+pytest>=8
+httpx>=0.27

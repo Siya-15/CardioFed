@@ -1,0 +1,354 @@
+{
+  "ablation": {
+    "all 13 features, native NaN": {
+      "cv_auc": 0.896,
+      "loho_auc": {
+        "cleveland": 0.8425,
+        "hungarian": 0.9,
+        "switzerland": 0.7862,
+        "va": 0.7005
+      },
+      "loho_mean": 0.8073,
+      "risk_shift_if_blank": {
+        "chol": 0.0772,
+        "fbs": 0.0502,
+        "trestbps": 0.0297,
+        "oldpeak": 0.0415
+      },
+      "hospital_predictable_from_missingness": 0.8365
+    },
+    "drop ca/thal, native NaN": {
+      "cv_auc": 0.8795,
+      "loho_auc": {
+        "cleveland": 0.8429,
+        "hungarian": 0.8937,
+        "switzerland": 0.8025,
+        "va": 0.7053
+      },
+      "loho_mean": 0.8111,
+      "risk_shift_if_blank": {
+        "chol": 0.1042,
+        "fbs": 0.0525,
+        "trestbps": 0.0292,
+        "oldpeak": 0.0376
+      },
+      "hospital_predictable_from_missingness": 0.7384
+    },
+    "drop ca/thal, stochastic imputation (chosen)": {
+      "cv_auc": 0.8692,
+      "loho_auc": {
+        "cleveland": 0.8428,
+        "hungarian": 0.8984,
+        "switzerland": 0.8043,
+        "va": 0.7387
+      },
+      "loho_mean": 0.8211,
+      "risk_shift_if_blank": {
+        "chol": -0.0008,
+        "fbs": 0.0022,
+        "trestbps": 0.001,
+        "oldpeak": 0.0127
+      },
+      "hospital_predictable_from_missingness": 0.7384
+    }
+  },
+  "tuning": [
+    {
+      "max_depth": 2,
+      "n_estimators": 150,
+      "cv_auc": 0.8726
+    },
+    {
+      "max_depth": 2,
+      "n_estimators": 300,
+      "cv_auc": 0.8728
+    },
+    {
+      "max_depth": 2,
+      "n_estimators": 500,
+      "cv_auc": 0.8707
+    },
+    {
+      "max_depth": 3,
+      "n_estimators": 150,
+      "cv_auc": 0.8689
+    },
+    {
+      "max_depth": 3,
+      "n_estimators": 300,
+      "cv_auc": 0.8692
+    },
+    {
+      "max_depth": 3,
+      "n_estimators": 500,
+      "cv_auc": 0.8667
+    },
+    {
+      "max_depth": 4,
+      "n_estimators": 150,
+      "cv_auc": 0.8676
+    },
+    {
+      "max_depth": 4,
+      "n_estimators": 300,
+      "cv_auc": 0.8658
+    },
+    {
+      "max_depth": 4,
+      "n_estimators": 500,
+      "cv_auc": 0.8615
+    }
+  ],
+  "chosen_params": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "enable_categorical": true,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 3,
+    "reg_lambda": 1.0,
+    "learning_rate": 0.03,
+    "random_state": 42,
+    "max_depth": 2,
+    "n_estimators": 150
+  },
+  "test": {
+    "models": {
+      "majority class": {
+        "auc": 0.5,
+        "brier": 0.247,
+        "log_loss": 0.6872,
+        "accuracy": 0.5543,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "threshold": 0.5,
+        "confusion": {
+          "tp": 102,
+          "fp": 82,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      "logistic regression": {
+        "auc": 0.8761,
+        "brier": 0.1372,
+        "log_loss": 0.4334,
+        "accuracy": 0.8152,
+        "sensitivity": 0.8529,
+        "specificity": 0.7683,
+        "threshold": 0.5,
+        "confusion": {
+          "tp": 87,
+          "fp": 19,
+          "tn": 63,
+          "fn": 15
+        },
+        "auc_ci95": [
+          0.8241,
+          0.9236
+        ]
+      },
+      "random forest (Project 1 config)": {
+        "auc": 0.8661,
+        "brier": 0.1433,
+        "log_loss": 0.4509,
+        "accuracy": 0.8152,
+        "sensitivity": 0.8824,
+        "specificity": 0.7317,
+        "threshold": 0.5,
+        "confusion": {
+          "tp": 90,
+          "fp": 22,
+          "tn": 60,
+          "fn": 12
+        },
+        "auc_ci95": [
+          0.8085,
+          0.9149
+        ]
+      },
+      "xgboost (CardioFed)": {
+        "auc": 0.8782,
+        "brier": 0.1355,
+        "log_loss": 0.4293,
+        "accuracy": 0.8207,
+        "sensitivity": 0.8725,
+        "specificity": 0.7561,
+        "threshold": 0.5,
+        "confusion": {
+          "tp": 89,
+          "fp": 20,
+          "tn": 62,
+          "fn": 13
+        },
+        "auc_ci95": [
+          0.8257,
+          0.9239
+        ]
+      }
+    },
+    "screening": {
+      "auc": 0.8782,
+      "brier": 0.1355,
+      "log_loss": 0.4293,
+      "accuracy": 0.8098,
+      "sensitivity": 0.9118,
+      "specificity": 0.6829,
+      "threshold": 0.3742,
+      "confusion": {
+        "tp": 93,
+        "fp": 26,
+        "tn": 56,
+        "fn": 9
+      }
+    },
+    "high_risk": {
+      "auc": 0.8782,
+      "brier": 0.1355,
+      "log_loss": 0.4293,
+      "accuracy": 0.7391,
+      "sensitivity": 0.6471,
+      "specificity": 0.8537,
+      "threshold": 0.7434,
+      "confusion": {
+        "tp": 66,
+        "fp": 12,
+        "tn": 70,
+        "fn": 36
+      }
+    },
+    "per_hospital": {
+      "cleveland": {
+        "n": 61,
+        "positives": 28,
+        "auc": 0.961,
+        "note": null
+      },
+      "hungarian": {
+        "n": 58,
+        "positives": 21,
+        "auc": 0.8494,
+        "note": null
+      },
+      "switzerland": {
+        "n": 25,
+        "positives": 23,
+        "auc": null,
+        "note": "fewer than 5 patients in one class - AUC not reported"
+      },
+      "va": {
+        "n": 40,
+        "positives": 30,
+        "auc": 0.7033,
+        "note": null
+      }
+    },
+    "calibration_bins": [
+      {
+        "mean_predicted": 0.0754,
+        "observed_rate": 0.0811,
+        "n": 37
+      },
+      {
+        "mean_predicted": 0.2848,
+        "observed_rate": 0.2703,
+        "n": 37
+      },
+      {
+        "mean_predicted": 0.6387,
+        "observed_rate": 0.6944,
+        "n": 36
+      },
+      {
+        "mean_predicted": 0.8342,
+        "observed_rate": 0.7838,
+        "n": 37
+      },
+      {
+        "mean_predicted": 0.9416,
+        "observed_rate": 0.9459,
+        "n": 37
+      }
+    ],
+    "oof_thresholds": {
+      "low": 0.3742,
+      "high": 0.7434
+    }
+  },
+  "leave_one_hospital_out": {
+    "cleveland": {
+      "n": 303,
+      "prevalence": 0.4587,
+      "xgboost_auc": 0.868,
+      "logreg_auc": 0.8563,
+      "xgboost_brier": 0.1593
+    },
+    "hungarian": {
+      "n": 293,
+      "prevalence": 0.3618,
+      "xgboost_auc": 0.8775,
+      "logreg_auc": 0.8923,
+      "xgboost_brier": 0.1665
+    },
+    "switzerland": {
+      "n": 123,
+      "prevalence": 0.935,
+      "xgboost_auc": 0.7924,
+      "logreg_auc": 0.7522,
+      "xgboost_brier": 0.1653
+    },
+    "va": {
+      "n": 199,
+      "prevalence": 0.7437,
+      "xgboost_auc": 0.7317,
+      "logreg_auc": 0.7524,
+      "xgboost_brier": 0.1674
+    }
+  },
+  "severity": {
+    "classes": [
+      "grade 1",
+      "grade 2",
+      "grade 3-4"
+    ],
+    "train_class_counts": [
+      128,
+      87,
+      106
+    ],
+    "xgboost": {
+      "accuracy": 0.5309,
+      "macro_f1": 0.4875,
+      "n": 81
+    },
+    "logistic regression": {
+      "accuracy": 0.4198,
+      "macro_f1": 0.3539,
+      "n": 81
+    },
+    "majority class": {
+      "accuracy": 0.3827,
+      "macro_f1": 0.1845,
+      "n": 81
+    }
+  },
+  "deployed_thresholds": {
+    "low": 0.4187,
+    "high": 0.7601
+  },
+  "global_importance": {
+    "cp": 0.7733,
+    "oldpeak": 0.3538,
+    "exang": 0.2964,
+    "sex": 0.2908,
+    "age": 0.2672,
+    "thalach": 0.1599,
+    "hr_reserve_pct": 0.1198,
+    "chol": 0.058,
+    "slope": 0.0577,
+    "trestbps": 0.0416,
+    "fbs": 0.0223,
+    "restecg": 0.0169
+  }
+}

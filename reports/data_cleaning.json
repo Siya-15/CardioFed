@@ -1,0 +1,135 @@
+[
+  {
+    "step": "drop_exact_duplicates",
+    "why": "identical records would leak between train and test",
+    "rows_removed": 2,
+    "by_hospital": {
+      "hungarian": 1,
+      "va": 1
+    }
+  },
+  {
+    "step": "zero_to_missing_chol",
+    "why": "chol = 0 is physiologically impossible (missing-value code)",
+    "values_changed": 172,
+    "by_hospital": {
+      "switzerland": 123,
+      "va": 49
+    }
+  },
+  {
+    "step": "zero_to_missing_trestbps",
+    "why": "trestbps = 0 is physiologically impossible (missing-value code)",
+    "values_changed": 1,
+    "by_hospital": {
+      "va": 1
+    }
+  },
+  {
+    "step": "range_check_age",
+    "why": "valid range 18..100",
+    "values_changed": 0
+  },
+  {
+    "step": "range_check_trestbps",
+    "why": "valid range 60..250",
+    "values_changed": 0
+  },
+  {
+    "step": "range_check_chol",
+    "why": "valid range 80..700",
+    "values_changed": 0
+  },
+  {
+    "step": "range_check_thalach",
+    "why": "valid range 50..230",
+    "values_changed": 0
+  },
+  {
+    "step": "range_check_oldpeak",
+    "why": "valid range -3.0..7.0",
+    "values_changed": 0
+  },
+  {
+    "step": "range_check_ca",
+    "why": "valid range 0..3",
+    "values_changed": 0
+  },
+  {
+    "step": "flag_iqr_outliers",
+    "why": "plausible extremes are real patients - flagged, not removed",
+    "columns": {
+      "age": {
+        "iqr_low": 27.5,
+        "iqr_high": 79.5,
+        "n_outside": 0
+      },
+      "trestbps": {
+        "iqr_low": 90.0,
+        "iqr_high": 170.0,
+        "n_outside": 27
+      },
+      "chol": {
+        "iqr_low": 109.5,
+        "iqr_high": 377.5,
+        "n_outside": 23
+      },
+      "thalach": {
+        "iqr_low": 64.5,
+        "iqr_high": 212.5,
+        "n_outside": 2
+      },
+      "oldpeak": {
+        "iqr_low": -2.25,
+        "iqr_high": 3.75,
+        "n_outside": 16
+      }
+    }
+  },
+  {
+    "step": "keep_negative_oldpeak",
+    "why": "negative ST depression = ST elevation; rare but clinically valid",
+    "rows": 12,
+    "by_hospital": {
+      "switzerland": 11,
+      "va": 1
+    }
+  },
+  {
+    "step": "define_targets",
+    "why": "has_disease = num > 0; severity only for sites that graded 1-4",
+    "positives": 508,
+    "negatives": 410,
+    "severity_rows": 402
+  },
+  {
+    "step": "site_specific_missingness",
+    "why": "ca/thal recorded almost only at Cleveland",
+    "missing_share": {
+      "ca": {
+        "cleveland": 0.013,
+        "hungarian": 0.99,
+        "switzerland": 0.959,
+        "va": 0.99
+      },
+      "thal": {
+        "cleveland": 0.007,
+        "hungarian": 0.904,
+        "switzerland": 0.423,
+        "va": 0.829
+      },
+      "slope": {
+        "cleveland": 0.0,
+        "hungarian": 0.645,
+        "switzerland": 0.138,
+        "va": 0.508
+      }
+    }
+  },
+  {
+    "step": "summary",
+    "why": "rows in -> rows out",
+    "rows_in": 920,
+    "rows_out": 918
+  }
+]

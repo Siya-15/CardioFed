@@ -1,0 +1,599 @@
+{
+  "clients": {
+    "cleveland": {
+      "train": 242,
+      "test": 61,
+      "train_prevalence": 0.4587
+    },
+    "hungarian": {
+      "train": 235,
+      "test": 58,
+      "train_prevalence": 0.3617
+    },
+    "switzerland": {
+      "train": 98,
+      "test": 25,
+      "train_prevalence": 0.9388
+    },
+    "va": {
+      "train": 159,
+      "test": 40,
+      "train_prevalence": 0.7421
+    }
+  },
+  "results": {
+    "local only (own model, own test set)": {
+      "cleveland": 0.9513,
+      "hungarian": 0.8288,
+      "switzerland": null,
+      "va": 0.6667,
+      "hospital_mean": 0.8156,
+      "pooled": 0.8844,
+      "pooled_brier": 0.1327
+    },
+    "federated XGBoost (weighted log-odds ensemble)": {
+      "cleveland": 0.9491,
+      "hungarian": 0.8391,
+      "switzerland": null,
+      "va": 0.7367,
+      "hospital_mean": 0.8416,
+      "pooled": 0.8763,
+      "pooled_brier": 0.1462
+    },
+    "FedAvg logistic regression": {
+      "cleveland": 0.9481,
+      "hungarian": 0.8494,
+      "switzerland": null,
+      "va": 0.7167,
+      "hospital_mean": 0.838,
+      "pooled": 0.8776,
+      "pooled_brier": 0.137
+    },
+    "centralised logistic regression (same preprocessing)": {
+      "cleveland": 0.9502,
+      "hungarian": 0.8481,
+      "switzerland": null,
+      "va": 0.6967,
+      "hospital_mean": 0.8317,
+      "pooled": 0.8761,
+      "pooled_brier": 0.1359
+    },
+    "centralised XGBoost (pooled data)": {
+      "cleveland": 0.961,
+      "hungarian": 0.8494,
+      "switzerland": null,
+      "va": 0.7067,
+      "hospital_mean": 0.839,
+      "pooled": 0.8784,
+      "pooled_brier": 0.1364
+    }
+  },
+  "fedavg_history": [
+    {
+      "round": 1,
+      "hospital_mean_auc": 0.8357,
+      "relative_distance_to_centralised": 0.4204
+    },
+    {
+      "round": 2,
+      "hospital_mean_auc": 0.8396,
+      "relative_distance_to_centralised": 0.2983
+    },
+    {
+      "round": 3,
+      "hospital_mean_auc": 0.8351,
+      "relative_distance_to_centralised": 0.2434
+    },
+    {
+      "round": 4,
+      "hospital_mean_auc": 0.8347,
+      "relative_distance_to_centralised": 0.2136
+    },
+    {
+      "round": 5,
+      "hospital_mean_auc": 0.8339,
+      "relative_distance_to_centralised": 0.1951
+    },
+    {
+      "round": 6,
+      "hospital_mean_auc": 0.8355,
+      "relative_distance_to_centralised": 0.1823
+    },
+    {
+      "round": 7,
+      "hospital_mean_auc": 0.8361,
+      "relative_distance_to_centralised": 0.1728
+    },
+    {
+      "round": 8,
+      "hospital_mean_auc": 0.8384,
+      "relative_distance_to_centralised": 0.1652
+    },
+    {
+      "round": 9,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.159
+    },
+    {
+      "round": 10,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.1538
+    },
+    {
+      "round": 11,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.1493
+    },
+    {
+      "round": 12,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.1454
+    },
+    {
+      "round": 13,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.142
+    },
+    {
+      "round": 14,
+      "hospital_mean_auc": 0.8376,
+      "relative_distance_to_centralised": 0.1389
+    },
+    {
+      "round": 15,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1363
+    },
+    {
+      "round": 16,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1339
+    },
+    {
+      "round": 17,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1317
+    },
+    {
+      "round": 18,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1298
+    },
+    {
+      "round": 19,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.128
+    },
+    {
+      "round": 20,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1264
+    },
+    {
+      "round": 21,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.125
+    },
+    {
+      "round": 22,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1237
+    },
+    {
+      "round": 23,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1225
+    },
+    {
+      "round": 24,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1214
+    },
+    {
+      "round": 25,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1204
+    },
+    {
+      "round": 26,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1195
+    },
+    {
+      "round": 27,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1187
+    },
+    {
+      "round": 28,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1179
+    },
+    {
+      "round": 29,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1172
+    },
+    {
+      "round": 30,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1165
+    },
+    {
+      "round": 31,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1159
+    },
+    {
+      "round": 32,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1154
+    },
+    {
+      "round": 33,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1149
+    },
+    {
+      "round": 34,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1144
+    },
+    {
+      "round": 35,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.114
+    },
+    {
+      "round": 36,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1136
+    },
+    {
+      "round": 37,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1132
+    },
+    {
+      "round": 38,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1128
+    },
+    {
+      "round": 39,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1125
+    },
+    {
+      "round": 40,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1122
+    },
+    {
+      "round": 41,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1119
+    },
+    {
+      "round": 42,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1116
+    },
+    {
+      "round": 43,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1114
+    },
+    {
+      "round": 44,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1112
+    },
+    {
+      "round": 45,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1109
+    },
+    {
+      "round": 46,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1107
+    },
+    {
+      "round": 47,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1105
+    },
+    {
+      "round": 48,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1104
+    },
+    {
+      "round": 49,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1102
+    },
+    {
+      "round": 50,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.11
+    },
+    {
+      "round": 51,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1099
+    },
+    {
+      "round": 52,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1098
+    },
+    {
+      "round": 53,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1096
+    },
+    {
+      "round": 54,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1095
+    },
+    {
+      "round": 55,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1094
+    },
+    {
+      "round": 56,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1093
+    },
+    {
+      "round": 57,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1092
+    },
+    {
+      "round": 58,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1091
+    },
+    {
+      "round": 59,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.109
+    },
+    {
+      "round": 60,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1089
+    },
+    {
+      "round": 61,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1088
+    },
+    {
+      "round": 62,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1088
+    },
+    {
+      "round": 63,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1087
+    },
+    {
+      "round": 64,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1086
+    },
+    {
+      "round": 65,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1086
+    },
+    {
+      "round": 66,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1085
+    },
+    {
+      "round": 67,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1085
+    },
+    {
+      "round": 68,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1084
+    },
+    {
+      "round": 69,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1084
+    },
+    {
+      "round": 70,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1083
+    },
+    {
+      "round": 71,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1083
+    },
+    {
+      "round": 72,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1082
+    },
+    {
+      "round": 73,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1082
+    },
+    {
+      "round": 74,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1082
+    },
+    {
+      "round": 75,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1081
+    },
+    {
+      "round": 76,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1081
+    },
+    {
+      "round": 77,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1081
+    },
+    {
+      "round": 78,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.108
+    },
+    {
+      "round": 79,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.108
+    },
+    {
+      "round": 80,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.108
+    },
+    {
+      "round": 81,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1079
+    },
+    {
+      "round": 82,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1079
+    },
+    {
+      "round": 83,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1079
+    },
+    {
+      "round": 84,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1079
+    },
+    {
+      "round": 85,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1079
+    },
+    {
+      "round": 86,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 87,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 88,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 89,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 90,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 91,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 92,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1078
+    },
+    {
+      "round": 93,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 94,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 95,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 96,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 97,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 98,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 99,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    },
+    {
+      "round": 100,
+      "hospital_mean_auc": 0.838,
+      "relative_distance_to_centralised": 0.1077
+    }
+  ],
+  "communication": {
+    "parameters": 20,
+    "rounds": 100,
+    "floats_exchanged": 16000,
+    "kilobytes_exchanged_float32": 62.5
+  },
+  "settings": {
+    "rounds": 100,
+    "local_epochs": 5,
+    "lr": 1.0,
+    "l2": 0.01,
+    "xgb_params": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "enable_categorical": true,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 3,
+      "reg_lambda": 1.0,
+      "learning_rate": 0.03,
+      "random_state": 42,
+      "max_depth": 2,
+      "n_estimators": 150
+    }
+  }
+}

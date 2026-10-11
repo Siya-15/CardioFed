@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+data/processed/
+frontend/node_modules/
+# frontend/dist/ is committed on purpose so the app runs after `pip install` without Node.
